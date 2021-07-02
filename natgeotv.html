@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HLS Player (M3U8)</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest" type="application/javascript"></script>
+<style>
+        body {
+            background-color: black;
+        }
+        #video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            margin: auto;
+            max-height: 100%;
+            max-width: 100%;
+        }
+    </style>
+  </head>
+  <body>
+   <center>
+<video autoplay="" class="video-js" controls="" data-setup="{}" height="85%" id="my-video" preload="auto" width="85%">
+    <script>
+      ((source) => {
+        if (typeof Hls == "undefined") return console.error("HLS Not Found");
+        if (!document.querySelector("video")) return;
+        var hls = new Hls();
+        hls.loadSource(source);
+        hls.attachMedia(document.querySelector("video"));
+      })("https://admdn2.cdn.mangomolo.com/nagtv/smil:nagtv.stream.smil/playlist.m3u8");
+    </script>
+<script src="https://raw.githubusercontent.com/CONNECT247/Player/main/player.js"></script>
+  </body>
+</html>
